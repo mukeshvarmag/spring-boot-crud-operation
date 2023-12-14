@@ -38,4 +38,16 @@ public class BooksService
     {
         booksRepository.save(books);
     }
+    //Get sum all prices
+    public int getSumOfPrices(){
+        List<Books> books = new ArrayList<Books>();
+        booksRepository.findAll().forEach(books1 -> books.add(books1));
+        int total =0;
+        for(Books books1:books){
+            int total1 = books1.getPrice();
+            total = total+total1;
+        }
+
+        return total;
+    }
 }
