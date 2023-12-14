@@ -24,6 +24,11 @@ public class BooksController
     {
         return booksService.getBooksById(bookid);
     }
+
+    @GetMapping("/book/totalPrice")
+    private int getTotalPrice(){
+        return  booksService.getSumOfPrices();
+}
     //creating a delete mapping that deletes a specified book
     @DeleteMapping("/book/{bookid}")
     private void deleteBook(@PathVariable("bookid") int bookid)
