@@ -8,6 +8,6 @@ class CrudApplicationTests {
 
 	@Test
 	void contextLoads() {
+		SpringBootCrudOperationApplication.main(new String[] {});
 	}
-
 }

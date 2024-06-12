@@ -33,11 +33,6 @@ public class BooksService
     {
         booksRepository.deleteById(id);
     }
-    //updating a record
-    public void update(Books books, int bookid)
-    {
-        booksRepository.save(books);
-    }
     //Get sum all prices
     public int getSumOfPrices(){
         List<Books> books = new ArrayList<Books>();

@@ -53,7 +53,7 @@ class BooksControllerTest {
         Books book4 = new Books(5, "Bala Reddy", "Reddy", 256);
         Books book5 = new Books(1, "Mukesh", "Muk", 5);
 
-        List<Books> booksList = Arrays.asList(book1, book2, book3, book5, book4);
+        List<Books> booksList = Arrays.asList(book1, book2, book3, book4, book5);
 
         // Stubbing the behavior of the service layer method
         when(booksService.getAllBooks()).thenReturn(booksList);
@@ -126,7 +126,7 @@ class BooksControllerTest {
                 .andExpect(status().isOk());
 
         // Verify that the controller calls the service method
-        //verify(booksService, times(1)).delete(1);
+
     }
 
     @Test
@@ -143,7 +143,7 @@ class BooksControllerTest {
                 .andReturn();
 
         // Verify that the controller calls the service method
-       // verify(booksService, times(1)).saveOrUpdate(book);
+
 
         // Assert the response
         assertEquals("1", result.getResponse().getContentAsString());
@@ -163,7 +163,6 @@ class BooksControllerTest {
                 .andReturn();
 
         // Verify that the controller calls the service method
-       // verify(booksService, times(1)).saveOrUpdate(book);
 
         // Assert the response
         String expectedResponse = new ObjectMapper().writeValueAsString(book);
