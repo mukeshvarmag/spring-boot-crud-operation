@@ -51,4 +51,14 @@ public class Books
     {
         this.price = price;
     }
+
+    public Books(){
+    }
+
+    public Books(int bookid, String bookname, String author, int price) {
+        this.bookid = bookid;
+        this.bookname = bookname;
+        this.author = author;
+        this.price = price;
+    }
 }

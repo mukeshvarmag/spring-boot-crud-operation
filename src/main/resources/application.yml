@@ -11,4 +11,4 @@ spring:
     database-platform: org.hibernate.dialect.MySQLDialect
 
 server:
-  port: 9443
+  port: 9090
