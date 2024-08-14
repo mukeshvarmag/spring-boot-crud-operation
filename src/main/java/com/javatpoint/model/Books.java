@@ -19,6 +19,9 @@ public class Books
     private String author;
     @Column
     private int price;
+    @Column
+    private String worthy;
+
     public int getBookid()
     {
         return bookid;
@@ -52,13 +55,22 @@ public class Books
         this.price = price;
     }
 
+    public String getWorthy() {
+        return worthy;
+    }
+
+    public void setWorthy(String worthy) {
+        this.worthy = worthy;
+    }
+
     public Books(){
     }
 
-    public Books(int bookid, String bookname, String author, int price) {
+    public Books(int bookid, String bookname, String author, int price, String worthy) {
         this.bookid = bookid;
         this.bookname = bookname;
         this.author = author;
         this.price = price;
+        this.worthy = worthy;
     }
 }

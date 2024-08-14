@@ -27,8 +27,8 @@ class BooksServiceTest {
 
     @Test
     void getAllBooks() {
-        Books book1 = new Books(1, "Book 1", "Author 1", 100);
-        Books book2 = new Books(2, "Book 2", "Author 2", 200);
+        Books book1 = new Books(1, "Book 1", "Author 1", 100,"Y");
+        Books book2 = new Books(2, "Book 2", "Author 2", 200,"Y");
         List<Books> booksList = new ArrayList<>();
         booksList.add(book1);
         booksList.add(book2);

@@ -1,52 +1,65 @@
 package com.javatpoint.controller;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.javatpoint.model.Books;
 import com.javatpoint.service.BooksService;
-//mark class as Controller
+
 @RestController
 @RequestMapping("/api")
-public class BooksController
-{
-    //autowire the BooksService class
+public class BooksController {
+
     @Autowired
     BooksService booksService;
-    //creating a get mapping that retrieves all the books detail from the database
-    @GetMapping("/book")
-    private List<Books> getAllBooks()
-    {
+
+    // Retrieve all books
+    @GetMapping("/books")
+    private List<Books> getAllBooks() {
         return booksService.getAllBooks();
     }
-    //creating a get mapping that retrieves the detail of a specific book
+
+    // Retrieve a specific book by ID
     @GetMapping("/book/{bookid}")
-    private Books getBooks(@PathVariable("bookid") int bookid)
-    {
+    private Books getBooks(@PathVariable("bookid") int bookid) {
         return booksService.getBooksById(bookid);
     }
 
-    @GetMapping("/book/totalPrice")
-    private int getTotalPrice(){
-        return  booksService.getSumOfPrices();
-}
-    //creating a delete mapping that deletes a specified book
+    // Retrieve books by name
+    @GetMapping("/books/name/{bookName}")
+    private List<Books> getBooksByName(@PathVariable("bookName") String bookName) {
+        return (List<Books>) booksService.getBooksByName(bookName);
+    }
+
+    // Retrieve books by author
+    @GetMapping("/books/author/{author}")
+    private List<Books> getBooksByAuthor(@PathVariable("author") String author) {
+        return (List<Books>) booksService.getBooksByAuthor(author);
+    }
+
+    // Retrieve the total price of all books
+    @GetMapping("/books/totalPrice")
+    private int getTotalPrice() {
+        return booksService.getSumOfPrices();
+    }
+
+    // Delete a book by ID
     @DeleteMapping("/book/{bookid}")
-    private void deleteBook(@PathVariable("bookid") int bookid)
-    {
+    private void deleteBook(@PathVariable("bookid") int bookid) {
         booksService.delete(bookid);
     }
-    //creating post mapping that post the book detail in the database
+
+    // Save a new book
     @PostMapping("/books")
-    private int saveBook(@RequestBody Books books)
-    {
+    private int saveBook(@RequestBody Books books) {
         booksService.saveOrUpdate(books);
         return books.getBookid();
     }
-    //creating put mapping that updates the book detail
+
+    // Update an existing book
     @PutMapping("/books")
-    private Books update(@RequestBody Books books)
-    {
-        booksService.saveOrUpdate(books);
+    private Books update(@RequestBody Books books) {
+        booksService.update(books);
         return books;
     }
 }

@@ -47,11 +47,11 @@ class BooksControllerTest {
     @Order(1)
     void getAllBooks() throws Exception {
         // Create Books objects based on the JSON data
-        Books book1 = new Books(2, "To Kill a Mockingbird", "*", 16);
-        Books book2 = new Books(3, null, "George Orwell", 19);
-        Books book3 = new Books(4, null, "F. Scott Fitzgerald", 21);
-        Books book4 = new Books(5, "Bala Reddy", "Reddy", 256);
-        Books book5 = new Books(1, "Mukesh", "Muk", 5);
+        Books book1 = new Books(2, "To Kill a Mockingbird", "*", 16, "Y");
+        Books book2 = new Books(3, null, "George Orwell", 19,"Y");
+        Books book3 = new Books(4, null, "F. Scott Fitzgerald", 21,"Y");
+        Books book4 = new Books(5, "Bala Reddy", "Reddy", 256,"Y");
+        Books book5 = new Books(1, "Mukesh", "Muk", 5,"Y");
 
         List<Books> booksList = Arrays.asList(book1, book2, book3, book4, book5);
 
@@ -78,7 +78,7 @@ class BooksControllerTest {
     @Order(2)
     void getBooks() throws Exception {
         // Create a Books object based on the JSON data
-        Books book = new Books(1, "Mukesh", "Muk", 5);
+        Books book = new Books(1, "Mukesh", "Muk", 5,"Y");
 
         // Stubbing the behavior of the service layer method
         when(booksService.getBooksById(1)).thenReturn(book);
@@ -133,7 +133,7 @@ class BooksControllerTest {
     @Order(5)
     void saveBook() throws Exception {
         // Create a Books object based on the JSON data
-        Books book = new Books(1, "Mukesh", "Muk", 5);
+        Books book = new Books(1, "Mukesh", "Muk", 5,"Y");
 
         // Perform the request
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/api/books")
@@ -153,7 +153,7 @@ class BooksControllerTest {
     @Order(6)
     void update() throws Exception {
         // Create a Books object based on the JSON data
-        Books book = new Books(1, "Mukesh", "Muk", 5);
+        Books book = new Books(1, "Mukesh", "Muk", 5,"Y");
 
         // Perform the request
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.put("/api/books")
