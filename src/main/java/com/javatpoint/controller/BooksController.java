@@ -20,7 +20,7 @@ public class BooksController {
     }
 
     // Retrieve a specific book by ID
-    @GetMapping("/book/{bookid}")
+    @GetMapping("/book/id/{bookid}")
     private Books getBooks(@PathVariable("bookid") int bookid) {
         return booksService.getBooksById(bookid);
     }

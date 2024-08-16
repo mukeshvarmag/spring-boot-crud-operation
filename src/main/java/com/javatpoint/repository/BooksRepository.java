@@ -8,7 +8,6 @@ import java.util.List;
 //repository that extends CrudRepository
 public interface BooksRepository extends JpaRepository<Books, Integer>
 {
-    List<Books> findById(int id);
 
     List<Books> findByBookname(String bookname);
 

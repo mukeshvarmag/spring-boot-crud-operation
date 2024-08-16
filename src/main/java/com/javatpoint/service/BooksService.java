@@ -22,7 +22,7 @@ public class BooksService
     //getting a specific record by using the method findById() of CrudRepository
     public Books getBooksById(int id)
     {
-        return booksRepository.findById(id).get(id);
+        return booksRepository.findById(id).get();
     }
     //saving a specific record by using the method save() of CrudRepository
     public void saveOrUpdate(Books books)
@@ -41,7 +41,7 @@ public class BooksService
 
     public void update(Books books){
         int id = books.getBookid();
-        Books books1 = booksRepository.findById(id).get(id);
+        Books books1 = booksRepository.findById(id).get();
         books1.setWorthy(books.getWorthy());
         books1.setAuthor(books.getAuthor());
         books1.setBookname(books.getBookname());
