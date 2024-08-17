@@ -1,18 +1,16 @@
 package com.javatpoint.model;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 //mark class as an Entity
 @Entity
-//defining class name as Table name
-@Table
-public class Books
-{
-    //Defining book id as primary key
+@Table(name = "BOOKS")
+public class Books {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_seq")
+    @SequenceGenerator(name = "book_seq", sequenceName = "BOOK_SEQ", allocationSize = 1)
     @Column
     private int bookid;
+
     @Column
     private String bookname;
     @Column
